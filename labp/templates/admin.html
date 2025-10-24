@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin</title>
+</head>
+<body>
+    <h1>Lista de Produtos</h1>
+
+    <ul>
+    {% for produto in produtos %}
+    <li>{{produto.id}}
+        {{produto.nome}}
+        <b> R${{produto.preco}}</b>
+    </li>
+    {% endfor %}
+    </ul>
+
+    <h2>Adicionar produto</h2>
+    <form method="POST" action="/adicionar">
+        
+        <input type="text" name="nome" placeholder="Nome do produto" required>
+        <input type="number" name="preco" placeholder="Preço" required>
+        <button type="submit">Adicionar</button>
+
+    </form>
+
+    <h2>Remover produto</h2>
+    <form method="POST" action="/deletar">       
+        <input type="number" name="id" placeholder="id" required>
+        <button type="submit">DELETAR</button>
+    </form>
+
+    <h2>Definir produto</h2>
+    <form method="POST" action="/definir">       
+        <input type="number" name="id" placeholder="id" required>
+        <input type="text" name="nome" placeholder="Nome do produto" required>
+        <input type="number" name="preco" placeholder="Preço" required>
+        <button type="submit">Definir</button>
+    </form>
+</body>
+</html>
